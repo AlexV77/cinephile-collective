@@ -30,7 +30,6 @@ app.use(
 const PORT = process.env.PORT
 const MONGODB_URI = process.env.MONGODB_URI
 const db = mongoose.connection
-const dbName = process.env.DBNAME
 
 
 // // Connect to Mongo &
@@ -38,9 +37,6 @@ const dbName = process.env.DBNAME
 // // May or may not need these depending on your Mongoose version
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }, () => {
     console.log('the connection with mongod is established')
-});
-db.once('open', () => {
-    console.log('mongo is connected: ', dbName);
 });
 // // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
