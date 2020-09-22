@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('../partials/head.ejs') %>
+</head>
+
+<body>
+    <nav>
+        <%- include ('../partials/nav.ejs') %>
+    </nav>
+    <h1>HELLO</h1>
+    <a href="/comment">Comments</a>
+    <a href="/schedule">Schedules</a>
+    <div class="container">
+
+        <div class="row">
+
+
+
+            <div class="col">
+                <h1><%= schedule[0].name %></h1>
+
+                <a href="/schedule/<%= schedules[0]._id %>"><%= schedules[0].name %></a>
+                <h3><%= schedules[0].class %></h3>
+                <h3><%= tasks[0].due %></h3>
+                <h3><%= tasks[0].category %></h3>
+                <a href="/task/<%= tasks[0]._id %>/edit">EDIT</a>
+                <form action="/task/<%=tasks[0]._id%>?_method=DELETE" method="POST">
+                    <input type="submit" value="DELETE" />
+                </form>
+
+            </div>
+
+            <div class="col">
+                <h1><%= classes[0].name %></h1>
+
+                <a href="/class/<%= classes[0]._id %>"><%= classes[0].name %></a>
+                <h3><%= classes[0].hrs %></h3>
+                <h3><%= classes[0].daysOfWeek %></h3>
+                <h3><%= classes[0].teacher %></h3>
+                <a href="/class/<%= classes[0]._id %>/edit">EDIT</a>
+                <form action="/class/<%=classes[0]._id%>?_method=DELETE" method="POST">
+                    <input type="submit" value="DELETE" />
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <footer>
+        <%- include ('../partials/footer.ejs') %>
+    </footer>
+</body>
+
+</html>
